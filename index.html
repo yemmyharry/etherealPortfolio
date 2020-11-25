@@ -6,15 +6,44 @@
 -->
 <html>
 	<head>
-		<title>Ethereal by HTML5 UP</title>
+		<title>Yemi's Portfolio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			.heart{color:#e25555;}
+			.heart{color:#e25555;} 
 		</style>
+		<!-- <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+		<script type="text/javascript">
+			(function() {
+			  emailjs.init("user_duLSAF7qwEoNpT8vh1SHk");
+			})();
+		</script> -->
+	
+		<script src="https://smtpjs.com/v3/smtp.js"></script>
+		<script>
+		
+			function sendEmail() {
+				var templateParams = {
+						name: document.getElementById('name').value,
+						email: document.getElementById('email').value,
+						message: document.getElementById('message').value
+					};
+				Email.send({
+						SecureToken: '360398a4-643b-4567-b81f-db730d406dbf',
+						From : templateParams.email,
+						To : 'anaxagorasj@gmail.com',
+						Subject : templateParams.name,
+						Body : templateParams.message
+					}).then(
+					message => alert(message)
+					);
+			}
+
+			window.addEventListener('DOMContentLoaded', sendEmail);
+		</script>
 	</head>
 	<body class="is-preload">
 
@@ -30,7 +59,7 @@
 									<h1 class="major">Welcome
 									</h1>
 									<h1>
-										<p href="" style="color: aliceblue;"  class="typewrite" data-period="2000" data-type='[ "I am Yemi Arigbanla.", "I am a software engineer." ]'>
+										<p href="" style="color: aliceblue;"  class="typewrite" data-period="2000" data-type='[ "I am Yemi Arigbanla.", "I am a software developer." ]'>
 										  <span class="wrap"></span>
 										</a>
 									  </h1>
@@ -57,7 +86,7 @@
 											
 											<h4>HTML5 &amp; CSS3<span> </span></h4>
 											<div class="progress progress-bar-striped active">
-												<div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+												<div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
 												</div>
 											</div>
 										</div>
@@ -132,7 +161,7 @@
 
 						<!-- Panel (Spotlight) -->
 							<section class="panel spotlight large left">
-								<div class="content span-5">
+								<div class="content span-5" style="color:bisque;">
 									<h2 class="major">About Me</h2>
 									<p>I am a software developer whose major focus is writing server scripts and API's to be utilized by front end engineers.</p>
 								</div>
@@ -153,14 +182,14 @@
 										<a target="_blank" href="http://testing-2.yemmyharry.repl.co/" class="image filtered span-1-5" data-position="center"><img src="images/gallery/thumbs/02.jpg" alt="" /></a>
 										<a target="_blank" href="https://yeminews.netlify.app/" class="image filtered span-1-5" data-position="bottom"><img src="images/gallery/thumbs/03.jpg" alt="" /></a>
 									</div>
-									<a target="_blank" href="images/gallery/fulls/04.jpg" class="image filtered span-2-5" data-position="top"><img src="images/gallery/thumbs/04.jpg" alt="" /></a>
+									<!-- <a target="_blank" href="images/gallery/fulls/04.jpg" class="image filtered span-2-5" data-position="top"><img src="images/gallery/thumbs/04.jpg" alt="" /></a>
 									<div class="group span-4-5">
 										<a target="_blank" href="images/gallery/fulls/05.jpg" class="image filtered span-3" data-position="top"><img src="images/gallery/thumbs/05.jpg" alt="" /></a>
 										<a target="_blank" href="images/gallery/fulls/06.jpg" class="image filtered span-1-5" data-position="center"><img src="images/gallery/thumbs/06.jpg" alt="" /></a>
 										<a target="_blank" href="images/gallery/fulls/07.jpg" class="image filtered span-1-5" data-position="bottom"><img src="images/gallery/thumbs/07.jpg" alt="" /></a>
 										<a target="_blank" href="images/gallery/fulls/08.jpg" class="image filtered span-3" data-position="top"><img src="images/gallery/thumbs/08.jpg" alt="" /></a>
 									</div>
-									<a target="_blank" href="images/gallery/fulls/09.jpg" class="image filtered span-2-5" data-position="right"><img src="images/gallery/thumbs/09.jpg" alt="" /></a>
+									<a target="_blank" href="images/gallery/fulls/09.jpg" class="image filtered span-2-5" data-position="right"><img src="images/gallery/thumbs/09.jpg" alt="" /></a> -->
 								</div>
 							</section>
 
@@ -172,7 +201,7 @@
 								</div>
 								<div class="inner columns divided">
 									<div class="span-3-25">
-										<form method="post" action="#">
+										<form method="post">
 											<div class="fields">
 												<div class="field half">
 													<label for="name">Name</label>
@@ -188,7 +217,9 @@
 												</div>
 											</div>
 											<ul class="actions">
-												<li><input type="submit" value="Send Message" class="button primary" /></li>
+												<li>
+													<input type="button" value="Send Message" class="button primary" onclick="sendEmail()" />
+												</li>
 											</ul>
 										</form>
 									</div>
@@ -488,5 +519,21 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="assets/js/animaniac.js"></script>
+<!-- <script>
+	function sendEmail(){
+		var templateParams = {
+			name: document.querySelector('#name').value,
+			email: document.querySelector('#email').value,
+			message: document.querySelector('#message').value
+		};
+		emailjs.sendForm('gmail', 'template_5yyiwvy', templateParams, 'user_duLSAF7qwEoNpT8vh1SHk')
+	.then(function(response) {
+	   console.log('SUCCESS!', response.status, response.text);
+	}, function(error) {
+	   console.log('FAILED...', error);
+	});
+	}
+
+</script> -->
 	</body>
 </html>
